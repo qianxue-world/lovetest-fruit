@@ -4,9 +4,6 @@ on:
   release:
     types: [published]
 
-env:
-  IMAGE_NAME: mbti-personality-test
-
 jobs:
   build-release:
     runs-on: ubuntu-latest

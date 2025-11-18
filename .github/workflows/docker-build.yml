@@ -13,9 +13,6 @@ on:
       - main
       - master
 
-env:
-  IMAGE_NAME: mbti-personality-test
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
