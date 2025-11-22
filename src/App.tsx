@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { StartScreen } from './components/StartScreen';
 import { QuestionScreen } from './components/QuestionScreen';
 import { ResultScreen } from './components/ResultScreen';
-import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { PaymentModal } from './components/PaymentModal';
 import { PaymentMethodModal } from './components/PaymentMethodModal';
 import { ActivationError } from './components/ActivationError';
