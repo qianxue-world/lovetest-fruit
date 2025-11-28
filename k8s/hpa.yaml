@@ -1,17 +1,17 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: mbti-personality-test-hpa
-  namespace: lovetest-mbti
+  name: lovetest-fruit-hpa
+  namespace: lovetest-fruit-ns
   labels:
-    app: mbti-personality-test
+    app: lovetest-fruit
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: mbti-personality-test
-  minReplicas: 1
-  maxReplicas: 1
+    name: lovetest-fruit
+  minReplicas: 2
+  maxReplicas: 10
   metrics:
   - type: Resource
     resource:

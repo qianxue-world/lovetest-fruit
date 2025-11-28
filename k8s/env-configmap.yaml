@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mbti-env-config
-  namespace: lovetest-mbti
+  name: lovetest-fruit-env-config
+  namespace: lovetest-fruit-ns
   labels:
-    app: mbti-personality-test
+    app: lovetest-fruit
