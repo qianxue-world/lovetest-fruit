@@ -18,7 +18,7 @@ resources:
 
 images:
 - name: omaticaya/lovetest-fruit
-  newTag: 1.0.1
+  newTag: 1.0.6
 
 commonLabels:
   app: lovetest-fruit
