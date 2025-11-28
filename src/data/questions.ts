@@ -1,551 +1,184 @@
 import { Question } from '../types';
 
 export const questions: Question[] = [
-  // E vs I questions (15 questions)
   {
-    question: "At a party, you're most likely to:",
+    question: "周末你最想做什么？",
     options: [
-      { text: "Work the room like a social butterfly 🦋", trait: "E" },
-      { text: "Find the host's cat and become best friends 🐱", trait: "I" },
-      { text: "Start a conga line 💃", trait: "E" },
-      { text: "Guard the snack table like a dragon 🐉", trait: "I" }
+      { text: "在家安静地看书或追剧 📚", score: 5, traits: ['温柔', '内敛'] },
+      { text: "约朋友出去逛街聚会 🎉", score: 8, traits: ['活力', '社交'] },
+      { text: "去咖啡厅享受悠闲时光 ☕", score: 6, traits: ['优雅', '品味'] },
+      { text: "尝试新的冒险活动 🎢", score: 9, traits: ['热情', '冒险'] }
     ]
   },
   {
-    question: "Your ideal Friday night:",
+    question: "朋友心情不好时，你会？",
     options: [
-      { text: "Karaoke with 20 friends! 🎤", trait: "E" },
-      { text: "Netflix, pajamas, and zero humans 📺", trait: "I" },
-      { text: "Hosting a game night 🎲", trait: "E" },
-      { text: "Reading a book in a blanket fort 📚", trait: "I" }
+      { text: "静静陪伴，给个温暖的拥抱 🤗", score: 7, traits: ['温暖', '体贴'] },
+      { text: "带TA出去玩，转移注意力 🎮", score: 8, traits: ['活力', '乐观'] },
+      { text: "认真倾听，给予建议 💭", score: 6, traits: ['理性', '包容'] },
+      { text: "用幽默的方式逗TA开心 😄", score: 7, traits: ['甜美', '可爱'] }
     ]
   },
   {
-    question: "When your phone rings:",
+    question: "你的穿衣风格是？",
     options: [
-      { text: "Answer immediately! Could be fun! 📞", trait: "E" },
-      { text: "Stare at it like it's a bomb 💣", trait: "I" },
-      { text: "Video call them back 📹", trait: "E" },
-      { text: "Text 'Can we just text?' 💬", trait: "I" }
+      { text: "简约舒适，以舒服为主 👕", score: 5, traits: ['自然', '随性'] },
+      { text: "时尚潮流，追求个性 👗", score: 9, traits: ['魅力', '独特'] },
+      { text: "优雅精致，注重细节 👔", score: 8, traits: ['优雅', '精致'] },
+      { text: "可爱甜美，充满少女感 🎀", score: 7, traits: ['甜美', '可爱'] }
     ]
   },
   {
-    question: "After a long day, you recharge by:",
+    question: "在聚会上，你通常是？",
     options: [
-      { text: "Calling friends to vent 📱", trait: "E" },
-      { text: "Hiding under a blanket 🛏️", trait: "I" },
-      { text: "Going out for drinks 🍻", trait: "E" },
-      { text: "Taking a solo walk 🚶", trait: "I" }
+      { text: "安静的倾听者 👂", score: 5, traits: ['温柔', '内敛'] },
+      { text: "活跃的话题制造者 🎤", score: 9, traits: ['活力', '社交'] },
+      { text: "优雅的观察者 👀", score: 6, traits: ['优雅', '细腻'] },
+      { text: "开心果，让大家笑个不停 😆", score: 8, traits: ['甜美', '乐观'] }
     ]
   },
   {
-    question: "In a group project, you:",
+    question: "你喜欢什么样的音乐？",
     options: [
-      { text: "Volunteer to present! 🎭", trait: "E" },
-      { text: "Do all the work alone at 2 AM 🌙", trait: "I" },
-      { text: "Organize team meetings 📅", trait: "E" },
-      { text: "Send detailed emails instead 📧", trait: "I" }
+      { text: "轻柔舒缓的音乐 🎵", score: 6, traits: ['温柔', '平和'] },
+      { text: "节奏感强的流行音乐 🎶", score: 8, traits: ['活力', '热情'] },
+      { text: "古典或爵士乐 🎼", score: 7, traits: ['优雅', '品味'] },
+      { text: "欢快可爱的歌曲 🎸", score: 7, traits: ['甜美', '活泼'] }
     ]
   },
   {
-    question: "Your dream vacation:",
+    question: "面对压力时，你会？",
     options: [
-      { text: "Group tour with new friends! 🚌", trait: "E" },
-      { text: "Solo cabin in the woods 🏡", trait: "I" },
-      { text: "Party cruise! 🚢", trait: "E" },
-      { text: "Quiet beach with a book 🏖️", trait: "I" }
+      { text: "找个安静的地方独处 🌙", score: 5, traits: ['内敛', '沉稳'] },
+      { text: "运动或做些激烈的活动 🏃", score: 8, traits: ['活力', '释放'] },
+      { text: "听音乐、品茶放松 🍵", score: 6, traits: ['优雅', '从容'] },
+      { text: "找朋友倾诉或寻求安慰 💕", score: 7, traits: ['温暖', '依赖'] }
     ]
   },
   {
-    question: "When meeting new people:",
+    question: "你的理想约会是？",
     options: [
-      { text: "Tell them your life story 📖", trait: "E" },
-      { text: "Panic internally 😰", trait: "I" },
-      { text: "Ask them 100 questions 🤔", trait: "E" },
-      { text: "Smile and nod awkwardly 😊", trait: "I" }
+      { text: "在家一起做饭看电影 🍿", score: 6, traits: ['温馨', '居家'] },
+      { text: "去游乐园或音乐节 🎡", score: 9, traits: ['热情', '冒险'] },
+      { text: "高级餐厅烛光晚餐 🕯️", score: 8, traits: ['优雅', '浪漫'] },
+      { text: "逛街购物吃甜品 🍰", score: 7, traits: ['甜美', '轻松'] }
     ]
   },
   {
-    question: "Your energy level is highest:",
+    question: "你最喜欢的颜色系？",
     options: [
-      { text: "In a crowded room 👥", trait: "E" },
-      { text: "Alone in your room 🚪", trait: "I" },
-      { text: "At a concert 🎵", trait: "E" },
-      { text: "During me-time 🧘", trait: "I" }
+      { text: "温暖的米色、奶茶色 🤎", score: 6, traits: ['温柔', '柔和'] },
+      { text: "明亮的橙色、黄色 💛", score: 8, traits: ['活力', '阳光'] },
+      { text: "优雅的紫色、酒红色 💜", score: 7, traits: ['优雅', '神秘'] },
+      { text: "可爱的粉色、桃色 💗", score: 7, traits: ['甜美', '少女'] }
     ]
   },
   {
-    question: "You process thoughts by:",
+    question: "你的社交圈是？",
     options: [
-      { text: "Talking it out loud 🗣️", trait: "E" },
-      { text: "Writing in a journal 📝", trait: "I" },
-      { text: "Calling everyone you know ☎️", trait: "E" },
-      { text: "Thinking silently for hours 🤫", trait: "I" }
+      { text: "几个知心好友 👥", score: 6, traits: ['深度', '真诚'] },
+      { text: "朋友遍天下 🌍", score: 9, traits: ['社交', '外向'] },
+      { text: "精选的高质量社交 ✨", score: 7, traits: ['优雅', '选择'] },
+      { text: "温暖的小圈子 🏡", score: 6, traits: ['温馨', '亲密'] }
     ]
   },
   {
-    question: "At a restaurant, you:",
+    question: "你的工作风格是？",
     options: [
-      { text: "Chat with the waiter 💬", trait: "E" },
-      { text: "Point at the menu 👉", trait: "I" },
-      { text: "Ask for recommendations 🍽️", trait: "E" },
-      { text: "Order online to avoid talking 📱", trait: "I" }
+      { text: "稳扎稳打，按部就班 📋", score: 5, traits: ['踏实', '可靠'] },
+      { text: "充满激情，追求效率 ⚡", score: 8, traits: ['活力', '高效'] },
+      { text: "注重细节，追求完美 🎯", score: 7, traits: ['精致', '完美'] },
+      { text: "灵活应变，富有创意 💡", score: 7, traits: ['灵动', '创新'] }
     ]
   },
   {
-    question: "Your workspace is:",
+    question: "你喜欢的旅行方式？",
     options: [
-      { text: "Open office - love the buzz! 🏢", trait: "E" },
-      { text: "Noise-canceling headphones on 🎧", trait: "I" },
-      { text: "Coffee shop with people ☕", trait: "E" },
-      { text: "Home office, door locked 🔒", trait: "I" }
+      { text: "慢节奏的深度游 🚶", score: 6, traits: ['从容', '深度'] },
+      { text: "刺激的冒险之旅 🏔️", score: 9, traits: ['冒险', '刺激'] },
+      { text: "精致的文化之旅 🏛️", score: 7, traits: ['优雅', '文化'] },
+      { text: "轻松愉快的度假 🏖️", score: 7, traits: ['放松', '享受'] }
     ]
   },
   {
-    question: "When you're excited, you:",
+    question: "你的表达方式是？",
     options: [
-      { text: "Tell everyone immediately! 📣", trait: "E" },
-      { text: "Smile quietly to yourself 😊", trait: "I" },
-      { text: "Post on social media 📱", trait: "E" },
-      { text: "Write it in your diary 📔", trait: "I" }
+      { text: "温和委婉，顾及他人感受 🌸", score: 6, traits: ['温柔', '体贴'] },
+      { text: "直接热情，表达清晰 📢", score: 8, traits: ['直率', '热情'] },
+      { text: "优雅得体，措辞讲究 📝", score: 7, traits: ['优雅', '修养'] },
+      { text: "活泼可爱，充满表情 😊", score: 7, traits: ['活泼', '可爱'] }
     ]
   },
   {
-    question: "Your idea of networking:",
+    question: "你最看重的品质是？",
     options: [
-      { text: "Exciting opportunity! 🤝", trait: "E" },
-      { text: "Necessary evil 😓", trait: "I" },
-      { text: "Let's exchange contacts! 📇", trait: "E" },
-      { text: "Can I just email? 📧", trait: "I" }
+      { text: "善良温柔 💝", score: 6, traits: ['善良', '温暖'] },
+      { text: "热情活力 🔥", score: 8, traits: ['热情', '活力'] },
+      { text: "优雅气质 👑", score: 7, traits: ['优雅', '气质'] },
+      { text: "真诚可爱 🌟", score: 7, traits: ['真诚', '可爱'] }
     ]
   },
   {
-    question: "During lunch break:",
+    question: "你的生活节奏是？",
     options: [
-      { text: "Eat with colleagues 🍱", trait: "E" },
-      { text: "Eat alone, finally! 🥪", trait: "I" },
-      { text: "Organize a lunch outing 🍕", trait: "E" },
-      { text: "Eat at your desk 💻", trait: "I" }
+      { text: "慢节奏，享受当下 🐌", score: 5, traits: ['从容', '享受'] },
+      { text: "快节奏，充实忙碌 🏃‍♀️", score: 9, traits: ['高效', '充实'] },
+      { text: "有条不紊，张弛有度 ⚖️", score: 7, traits: ['平衡', '有序'] },
+      { text: "随性自在，跟着感觉走 🎈", score: 7, traits: ['随性', '自在'] }
     ]
   },
   {
-    question: "You make friends by:",
+    question: "你喜欢的电影类型？",
     options: [
-      { text: "Talking to everyone 👋", trait: "E" },
-      { text: "Waiting for them to adopt you 🐶", trait: "I" },
-      { text: "Joining group activities 🎯", trait: "E" },
-      { text: "Bonding over shared interests 📚", trait: "I" }
-    ]
-  },
-
-  // N vs S questions (15 questions)
-  {
-    question: "You prefer stories that are:",
-    options: [
-      { text: "Fantasy with dragons! 🐉", trait: "N" },
-      { text: "Based on true events 📰", trait: "S" },
-      { text: "Sci-fi with time travel ⏰", trait: "N" },
-      { text: "Historical documentaries 🏛️", trait: "S" }
+      { text: "温馨治愈系 🌈", score: 6, traits: ['温暖', '治愈'] },
+      { text: "动作冒险片 💥", score: 8, traits: ['刺激', '冒险'] },
+      { text: "文艺浪漫片 🎬", score: 7, traits: ['浪漫', '文艺'] },
+      { text: "轻松喜剧片 😂", score: 7, traits: ['轻松', '快乐'] }
     ]
   },
   {
-    question: "When following a recipe:",
+    question: "你的兴趣爱好是？",
     options: [
-      { text: "Add random ingredients for fun 🎨", trait: "N" },
-      { text: "Follow it exactly 📏", trait: "S" },
-      { text: "Improvise wildly 🎭", trait: "N" },
-      { text: "Measure everything precisely ⚖️", trait: "S" }
+      { text: "阅读、写作、手工 ✍️", score: 6, traits: ['文静', '细腻'] },
+      { text: "运动、旅行、探险 🎿", score: 9, traits: ['活跃', '探索'] },
+      { text: "艺术、音乐、品茶 🎨", score: 7, traits: ['艺术', '品味'] },
+      { text: "美食、摄影、逛街 📸", score: 7, traits: ['享受', '生活'] }
     ]
   },
   {
-    question: "You're more interested in:",
+    question: "你的魅力来源于？",
     options: [
-      { text: "What could be possible 🌟", trait: "N" },
-      { text: "What actually exists 🏗️", trait: "S" },
-      { text: "Future innovations 🚀", trait: "N" },
-      { text: "Current facts 📊", trait: "S" }
+      { text: "温柔的性格和善良的心 💖", score: 6, traits: ['温柔', '善良'] },
+      { text: "充满活力的个性 ⚡", score: 8, traits: ['活力', '个性'] },
+      { text: "优雅的气质和品味 ✨", score: 7, traits: ['优雅', '品味'] },
+      { text: "独特的魅力和风格 🌺", score: 8, traits: ['独特', '魅力'] }
     ]
   },
   {
-    question: "When learning something new:",
+    question: "你希望给人的印象是？",
     options: [
-      { text: "Jump to the big picture 🖼️", trait: "N" },
-      { text: "Start with step one 1️⃣", trait: "S" },
-      { text: "Imagine possibilities 💭", trait: "N" },
-      { text: "Focus on details 🔍", trait: "S" }
+      { text: "温暖可靠，值得信赖 🤝", score: 6, traits: ['可靠', '温暖'] },
+      { text: "充满活力，积极向上 🌞", score: 8, traits: ['积极', '活力'] },
+      { text: "优雅大方，有气质 👗", score: 7, traits: ['优雅', '大方'] },
+      { text: "可爱迷人，讨人喜欢 💕", score: 7, traits: ['可爱', '迷人'] }
     ]
   },
   {
-    question: "Your dream job involves:",
+    question: "你的人生态度是？",
     options: [
-      { text: "Creating new ideas 💡", trait: "N" },
-      { text: "Practical hands-on work 🔧", trait: "S" },
-      { text: "Innovation and vision 🎯", trait: "N" },
-      { text: "Proven methods 📋", trait: "S" }
+      { text: "平和淡然，顺其自然 🍃", score: 5, traits: ['平和', '淡然'] },
+      { text: "积极进取，勇往直前 🚀", score: 9, traits: ['进取', '勇敢'] },
+      { text: "追求品质，精致生活 🌹", score: 7, traits: ['品质', '精致'] },
+      { text: "享受当下，快乐至上 🎊", score: 7, traits: ['享受', '快乐'] }
     ]
   },
   {
-    question: "You trust:",
+    question: "你最想成为什么样的人？",
     options: [
-      { text: "Your gut feeling 🔮", trait: "N" },
-      { text: "What you can see 👀", trait: "S" },
-      { text: "Intuition and hunches 🌙", trait: "N" },
-      { text: "Facts and data 📈", trait: "S" }
-    ]
-  },
-  {
-    question: "When describing something:",
-    options: [
-      { text: "Use metaphors and analogies 🎭", trait: "N" },
-      { text: "Stick to literal facts 📝", trait: "S" },
-      { text: "Paint a vivid picture 🎨", trait: "N" },
-      { text: "List specific details 📋", trait: "S" }
-    ]
-  },
-  {
-    question: "You're drawn to:",
-    options: [
-      { text: "Abstract concepts 🌌", trait: "N" },
-      { text: "Concrete reality 🏔️", trait: "S" },
-      { text: "Theoretical ideas 🧠", trait: "N" },
-      { text: "Practical applications 🛠️", trait: "S" }
-    ]
-  },
-  {
-    question: "Your shopping style:",
-    options: [
-      { text: "Browse and get inspired ✨", trait: "N" },
-      { text: "Buy exactly what's on the list 📝", trait: "S" },
-      { text: "Imagine outfit possibilities 👗", trait: "N" },
-      { text: "Check quality and price 💰", trait: "S" }
-    ]
-  },
-  {
-    question: "You remember:",
-    options: [
-      { text: "The overall impression 🌈", trait: "N" },
-      { text: "Specific details 📌", trait: "S" },
-      { text: "The feeling and vibe ✨", trait: "N" },
-      { text: "Exact facts and figures 🔢", trait: "S" }
-    ]
-  },
-  {
-    question: "When giving directions:",
-    options: [
-      { text: "It's near that place with the thing 🤷", trait: "N" },
-      { text: "Turn left at Main St, go 0.3 miles 📍", trait: "S" },
-      { text: "You'll feel when you're close 🧭", trait: "N" },
-      { text: "Use GPS coordinates 🗺️", trait: "S" }
-    ]
-  },
-  {
-    question: "You prefer art that's:",
-    options: [
-      { text: "Abstract and interpretive 🎨", trait: "N" },
-      { text: "Realistic and detailed 🖼️", trait: "S" },
-      { text: "Symbolic and meaningful 🌟", trait: "N" },
-      { text: "Clear and precise 📐", trait: "S" }
-    ]
-  },
-  {
-    question: "Your approach to problems:",
-    options: [
-      { text: "Think outside the box 📦", trait: "N" },
-      { text: "Use proven solutions ✅", trait: "S" },
-      { text: "Brainstorm wild ideas 🌪️", trait: "N" },
-      { text: "Follow best practices 📚", trait: "S" }
-    ]
-  },
-  {
-    question: "You're inspired by:",
-    options: [
-      { text: "Possibilities and potential 🌠", trait: "N" },
-      { text: "Real achievements 🏆", trait: "S" },
-      { text: "Future visions 🔮", trait: "N" },
-      { text: "Current successes 📊", trait: "S" }
-    ]
-  },
-  {
-    question: "When reading instructions:",
-    options: [
-      { text: "Skim and wing it 🦅", trait: "N" },
-      { text: "Read every word carefully 📖", trait: "S" },
-      { text: "Figure it out as you go 🎲", trait: "N" },
-      { text: "Follow step-by-step 👣", trait: "S" }
-    ]
-  },
-
-  // T vs F questions (15 questions)
-  {
-    question: "When a friend is upset:",
-    options: [
-      { text: "Offer logical solutions 🧩", trait: "T" },
-      { text: "Give them a hug 🤗", trait: "F" },
-      { text: "Analyze the problem 🔍", trait: "T" },
-      { text: "Listen and empathize 💕", trait: "F" }
-    ]
-  },
-  {
-    question: "You make decisions based on:",
-    options: [
-      { text: "Logic and reason 🧠", trait: "T" },
-      { text: "How people feel ❤️", trait: "F" },
-      { text: "Objective analysis 📊", trait: "T" },
-      { text: "Personal values 🌟", trait: "F" }
-    ]
-  },
-  {
-    question: "In an argument, you:",
-    options: [
-      { text: "Debate with facts 📚", trait: "T" },
-      { text: "Consider feelings 💭", trait: "F" },
-      { text: "Win with logic 🏆", trait: "T" },
-      { text: "Seek harmony 🕊️", trait: "F" }
-    ]
-  },
-  {
-    question: "You value:",
-    options: [
-      { text: "Truth and accuracy ✓", trait: "T" },
-      { text: "Kindness and tact 💝", trait: "F" },
-      { text: "Being right 🎯", trait: "T" },
-      { text: "Being nice 😊", trait: "F" }
-    ]
-  },
-  {
-    question: "When giving feedback:",
-    options: [
-      { text: "Direct and honest 📢", trait: "T" },
-      { text: "Gentle and encouraging 🌸", trait: "F" },
-      { text: "Focus on improvements 📈", trait: "T" },
-      { text: "Praise first 👏", trait: "F" }
-    ]
-  },
-  {
-    question: "You're more concerned with:",
-    options: [
-      { text: "Being fair ⚖️", trait: "T" },
-      { text: "Being compassionate 💗", trait: "F" },
-      { text: "Justice 👨‍⚖️", trait: "T" },
-      { text: "Mercy 🙏", trait: "F" }
-    ]
-  },
-  {
-    question: "In a crisis, you:",
-    options: [
-      { text: "Stay calm and logical 🧊", trait: "T" },
-      { text: "Comfort others first 🤲", trait: "F" },
-      { text: "Find solutions 🔧", trait: "T" },
-      { text: "Check if everyone's okay 💚", trait: "F" }
-    ]
-  },
-  {
-    question: "You're better at:",
-    options: [
-      { text: "Critical thinking 🤔", trait: "T" },
-      { text: "Understanding emotions 💫", trait: "F" },
-      { text: "Analyzing data 📉", trait: "T" },
-      { text: "Reading people 👥", trait: "F" }
-    ]
-  },
-  {
-    question: "When someone's wrong:",
-    options: [
-      { text: "Correct them immediately ✋", trait: "T" },
-      { text: "Let it slide to keep peace ☮️", trait: "F" },
-      { text: "Explain why they're wrong 📝", trait: "T" },
-      { text: "Consider their feelings 💭", trait: "F" }
-    ]
-  },
-  {
-    question: "You prefer movies that:",
-    options: [
-      { text: "Make you think 🧠", trait: "T" },
-      { text: "Make you feel 😢", trait: "F" },
-      { text: "Have plot twists 🔄", trait: "T" },
-      { text: "Have emotional depth 💔", trait: "F" }
-    ]
-  },
-  {
-    question: "Your strength is:",
-    options: [
-      { text: "Objective reasoning 🎓", trait: "T" },
-      { text: "Emotional intelligence 🌈", trait: "F" },
-      { text: "Problem-solving 🧩", trait: "T" },
-      { text: "Empathy 🤝", trait: "F" }
-    ]
-  },
-  {
-    question: "You're motivated by:",
-    options: [
-      { text: "Achievement and competence 🏅", trait: "T" },
-      { text: "Harmony and connection 🔗", trait: "F" },
-      { text: "Excellence 💎", trait: "T" },
-      { text: "Relationships 👫", trait: "F" }
-    ]
-  },
-  {
-    question: "When criticized:",
-    options: [
-      { text: "Evaluate if it's valid 🔍", trait: "T" },
-      { text: "Feel hurt 💔", trait: "F" },
-      { text: "Defend with logic 🛡️", trait: "T" },
-      { text: "Wonder if they still like you 😟", trait: "F" }
-    ]
-  },
-  {
-    question: "You'd rather be:",
-    options: [
-      { text: "Respected 🎖️", trait: "T" },
-      { text: "Loved 💖", trait: "F" },
-      { text: "Competent 💪", trait: "T" },
-      { text: "Appreciated 🌺", trait: "F" }
-    ]
-  },
-  {
-    question: "Your communication style:",
-    options: [
-      { text: "Direct and clear 📍", trait: "T" },
-      { text: "Warm and friendly 🌞", trait: "F" },
-      { text: "Efficient ⚡", trait: "T" },
-      { text: "Considerate 💝", trait: "F" }
-    ]
-  },
-
-  // J vs P questions (15 questions)
-  {
-    question: "Your room is:",
-    options: [
-      { text: "Organized like a museum 🏛️", trait: "J" },
-      { text: "Creative chaos 🌪️", trait: "P" },
-      { text: "Everything has a place 📦", trait: "J" },
-      { text: "Organized mess (you know where things are!) 🗺️", trait: "P" }
-    ]
-  },
-  {
-    question: "Planning a trip:",
-    options: [
-      { text: "Itinerary planned months ahead 📅", trait: "J" },
-      { text: "Book flight, wing the rest ✈️", trait: "P" },
-      { text: "Spreadsheet with backup plans 📊", trait: "J" },
-      { text: "See where the wind takes you 🍃", trait: "P" }
-    ]
-  },
-  {
-    question: "Deadlines are:",
-    options: [
-      { text: "Finish a week early 📆", trait: "J" },
-      { text: "What deadline? 😅", trait: "P" },
-      { text: "Sacred and non-negotiable ⏰", trait: "J" },
-      { text: "Suggestions, really 🤷", trait: "P" }
-    ]
-  },
-  {
-    question: "Your calendar looks like:",
-    options: [
-      { text: "Color-coded perfection 🌈", trait: "J" },
-      { text: "What calendar? 📱", trait: "P" },
-      { text: "Scheduled down to the minute ⏱️", trait: "J" },
-      { text: "Vague ideas of plans 💭", trait: "P" }
-    ]
-  },
-  {
-    question: "When shopping:",
-    options: [
-      { text: "List, budget, done ✅", trait: "J" },
-      { text: "Ooh, shiny! 🤩", trait: "P" },
-      { text: "Stick to the plan 📝", trait: "J" },
-      { text: "Explore and discover 🔍", trait: "P" }
-    ]
-  },
-  {
-    question: "You prefer:",
-    options: [
-      { text: "Routine and structure 🏗️", trait: "J" },
-      { text: "Spontaneity and freedom 🦋", trait: "P" },
-      { text: "Predictability 📊", trait: "J" },
-      { text: "Flexibility 🤸", trait: "P" }
-    ]
-  },
-  {
-    question: "Starting a project:",
-    options: [
-      { text: "Plan everything first 📋", trait: "J" },
-      { text: "Jump in and figure it out 🏊", trait: "P" },
-      { text: "Create detailed outline 📑", trait: "J" },
-      { text: "Start and see what happens 🎲", trait: "P" }
-    ]
-  },
-  {
-    question: "Your workspace:",
-    options: [
-      { text: "Everything in its place 📌", trait: "J" },
-      { text: "Organized chaos 🎨", trait: "P" },
-      { text: "Minimalist and tidy 🧹", trait: "J" },
-      { text: "Creative clutter 🖍️", trait: "P" }
-    ]
-  },
-  {
-    question: "Making decisions:",
-    options: [
-      { text: "Decide quickly and move on ⚡", trait: "J" },
-      { text: "Keep options open 🚪", trait: "P" },
-      { text: "Commit and stick to it 🎯", trait: "J" },
-      { text: "Maybe change your mind later 🔄", trait: "P" }
-    ]
-  },
-  {
-    question: "Your morning routine:",
-    options: [
-      { text: "Same every day ☀️", trait: "J" },
-      { text: "Different every day 🌅", trait: "P" },
-      { text: "Timed to perfection ⏰", trait: "J" },
-      { text: "Depends on the vibe 🎵", trait: "P" }
-    ]
-  },
-  {
-    question: "Packing for a trip:",
-    options: [
-      { text: "List and pack days before 🧳", trait: "J" },
-      { text: "Throw stuff in last minute 👕", trait: "P" },
-      { text: "Organized packing cubes 📦", trait: "J" },
-      { text: "Whatever fits 🎒", trait: "P" }
-    ]
-  },
-  {
-    question: "You feel best when:",
-    options: [
-      { text: "Everything is decided ✓", trait: "J" },
-      { text: "Options are open 🌟", trait: "P" },
-      { text: "Plans are set 📅", trait: "J" },
-      { text: "Being spontaneous 🎭", trait: "P" }
-    ]
-  },
-  {
-    question: "Your to-do list:",
-    options: [
-      { text: "Detailed and prioritized 📝", trait: "J" },
-      { text: "Mental notes (maybe) 🧠", trait: "P" },
-      { text: "Checked off religiously ✅", trait: "J" },
-      { text: "Suggestions for yourself 💡", trait: "P" }
-    ]
-  },
-  {
-    question: "When plans change:",
-    options: [
-      { text: "Stress! Need new plan! 😰", trait: "J" },
-      { text: "Cool, new adventure! 🎉", trait: "P" },
-      { text: "Reorganize everything 🔄", trait: "J" },
-      { text: "Go with the flow 🌊", trait: "P" }
-    ]
-  },
-  {
-    question: "You work best:",
-    options: [
-      { text: "With clear deadlines 📆", trait: "J" },
-      { text: "Under pressure (last minute!) ⏰", trait: "P" },
-      { text: "Steady and planned 🐢", trait: "J" },
-      { text: "Bursts of inspiration ⚡", trait: "P" }
+      { text: "温柔体贴，让人感到温暖 🌸", score: 6, traits: ['温柔', '体贴'] },
+      { text: "充满能量，激励他人 💪", score: 8, traits: ['能量', '激励'] },
+      { text: "优雅从容，有独特魅力 👑", score: 7, traits: ['优雅', '魅力'] },
+      { text: "真实可爱，活出自我 🦋", score: 7, traits: ['真实', '自我'] }
     ]
   }
 ];

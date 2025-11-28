@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { questions } from '../data/questions';
 import { questionsZh } from '../data/questions.zh';
 import { questionsJa } from '../data/questions.ja';
-import { Trait } from '../types';
 import './QuestionScreen.css';
 
 interface QuestionScreenProps {
   currentQuestion: number;
   totalQuestions: number;
-  onAnswer: (trait: Trait) => void;
+  onAnswer: (score: number, traits: string[]) => void;
 }
 
 export const QuestionScreen: React.FC<QuestionScreenProps> = ({
@@ -56,7 +55,7 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({
             <div
               key={index}
               className="option-btn"
-              onClick={() => onAnswer(option.trait)}
+              onClick={() => onAnswer(option.score, option.traits)}
             >
               {option.text}
             </div>

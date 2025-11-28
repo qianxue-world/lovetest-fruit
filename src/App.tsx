@@ -6,7 +6,7 @@ import { PaymentModal } from './components/PaymentModal';
 import { PaymentMethodModal } from './components/PaymentMethodModal';
 import { ActivationError } from './components/ActivationError';
 import { ActivationService } from './services/activationService';
-import { Answers, PersonalityType, Trait } from './types';
+import { Answers, FruitType } from './types';
 import './App.css';
 
 type Screen = 'start' | 'question' | 'result';
@@ -15,9 +15,13 @@ function App() {
   const [screen, setScreen] = useState<Screen>('start');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Answers>({
-    E: 0, I: 0, N: 0, S: 0, T: 0, F: 0, J: 0, P: 0
+    warmth: 0,
+    energy: 0,
+    sweetness: 0,
+    elegance: 0,
+    passion: 0
   });
-  const [personalityType, setPersonalityType] = useState<PersonalityType>('INFP');
+  const [fruitType, setFruitType] = useState<FruitType>('banana');
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showMethodModal, setShowMethodModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{ plan: 'basic' | 'professional' | 'premium'; price: string } | null>(null);
@@ -28,13 +32,13 @@ function App() {
   const [activationCode, setActivationCode] = useState<string | null>(null);
   const [isValidating, setIsValidating] = useState<boolean>(true);
 
-  const totalQuestions = 60;
+  const totalQuestions = 20;
 
   // 检查是否为测试模式
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const isTestMode = urlParams.get('test') === 'true';
-    const testType = urlParams.get('type') as PersonalityType;
+    const testType = urlParams.get('type') as FruitType;
 
     // 安全检查：只在localhost环境下允许测试模式
     const isLocalhost = window.location.hostname === 'localhost' || 
@@ -44,13 +48,13 @@ function App() {
     if (isTestMode && testType && isLocalhost) {
       // 测试模式：直接跳转到结果页
       console.log('🧪 测试模式激活:', testType);
-      setPersonalityType(testType);
+      setFruitType(testType);
       setScreen('result');
       setIsActivated(true);
       setIsValidating(false);
       
       // 生成模拟答案数据
-      const mockAnswers = generateMockAnswers(testType);
+      const mockAnswers = generateMockAnswers();
       setAnswers(mockAnswers);
       return;
     }
@@ -60,26 +64,14 @@ function App() {
   }, []);
 
   // 生成模拟答案数据
-  const generateMockAnswers = (type: PersonalityType): Answers => {
-    const traits = type.split('');
-    const answers: Answers = {
-      E: 0, I: 0, N: 0, S: 0, T: 0, F: 0, J: 0, P: 0
+  const generateMockAnswers = (): Answers => {
+    return {
+      warmth: Math.floor(Math.random() * 50) + 50,
+      energy: Math.floor(Math.random() * 50) + 50,
+      sweetness: Math.floor(Math.random() * 50) + 50,
+      elegance: Math.floor(Math.random() * 50) + 50,
+      passion: Math.floor(Math.random() * 50) + 50
     };
-
-    // 为每个维度生成合理的分数（总和为15）
-    answers[traits[0] as 'E' | 'I'] = Math.floor(Math.random() * 5) + 8; // 8-12
-    answers[traits[0] === 'E' ? 'I' : 'E'] = 15 - answers[traits[0] as 'E' | 'I'];
-
-    answers[traits[1] as 'N' | 'S'] = Math.floor(Math.random() * 5) + 8;
-    answers[traits[1] === 'N' ? 'S' : 'N'] = 15 - answers[traits[1] as 'N' | 'S'];
-
-    answers[traits[2] as 'T' | 'F'] = Math.floor(Math.random() * 5) + 8;
-    answers[traits[2] === 'T' ? 'F' : 'T'] = 15 - answers[traits[2] as 'T' | 'F'];
-
-    answers[traits[3] as 'J' | 'P'] = Math.floor(Math.random() * 5) + 8;
-    answers[traits[3] === 'J' ? 'P' : 'J'] = 15 - answers[traits[3] as 'J' | 'P'];
-
-    return answers;
   };
 
   const validateActivation = async () => {
@@ -142,15 +134,36 @@ function App() {
     setScreen('question');
   };
 
-  const handleAnswer = (trait: Trait) => {
-    const newAnswers = { ...answers, [trait]: answers[trait] + 1 };
+  const handleAnswer = (score: number, traits: string[]) => {
+    // 根据分数和特征更新答案
+    const newAnswers = { ...answers };
+    
+    // 根据特征标签更新对应维度的分数
+    traits.forEach(trait => {
+      if (trait.includes('温柔') || trait.includes('温暖') || trait.includes('体贴') || trait.includes('善良')) {
+        newAnswers.warmth += score;
+      }
+      if (trait.includes('活力') || trait.includes('活跃') || trait.includes('热情') || trait.includes('积极')) {
+        newAnswers.energy += score;
+      }
+      if (trait.includes('甜美') || trait.includes('可爱') || trait.includes('少女')) {
+        newAnswers.sweetness += score;
+      }
+      if (trait.includes('优雅') || trait.includes('精致') || trait.includes('品味') || trait.includes('气质')) {
+        newAnswers.elegance += score;
+      }
+      if (trait.includes('热情') || trait.includes('冒险') || trait.includes('刺激') || trait.includes('魅力')) {
+        newAnswers.passion += score;
+      }
+    });
+    
     setAnswers(newAnswers);
 
     if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      const type = calculatePersonalityType(newAnswers);
-      setPersonalityType(type);
+      const type = calculateFruitType(newAnswers);
+      setFruitType(type);
       // 直接显示结果，跳过付费页面
       setScreen('result');
       // setShowPaymentModal(true); // 暂时隐藏付费功能
@@ -303,13 +316,33 @@ function App() {
     // 不关闭套餐选择弹窗，让用户可以重新选择
   };
 
-  const calculatePersonalityType = (ans: Answers): PersonalityType => {
-    let type = '';
-    type += ans.E > ans.I ? 'E' : 'I';
-    type += ans.N > ans.S ? 'N' : 'S';
-    type += ans.T > ans.F ? 'T' : 'F';
-    type += ans.J > ans.P ? 'J' : 'P';
-    return type as PersonalityType;
+  const calculateFruitType = (ans: Answers): FruitType => {
+    // 根据各维度得分计算水果类型
+    const scores = {
+      banana: ans.warmth * 1.5 + ans.elegance * 0.5,
+      apple: ans.energy * 1.2 + ans.warmth * 0.8,
+      strawberry: ans.sweetness * 1.5 + ans.warmth * 0.5,
+      watermelon: ans.energy * 1.3 + ans.passion * 0.7,
+      grape: ans.elegance * 1.5 + ans.sweetness * 0.5,
+      orange: ans.energy * 1.5 + ans.passion * 0.5,
+      peach: ans.warmth * 1.3 + ans.sweetness * 0.7,
+      pineapple: ans.passion * 1.5 + ans.energy * 0.5,
+      cherry: ans.sweetness * 1.3 + ans.energy * 0.7,
+      mango: ans.passion * 1.3 + ans.elegance * 0.7
+    };
+
+    // 找出得分最高的水果类型
+    let maxScore = 0;
+    let resultType: FruitType = 'banana';
+    
+    Object.entries(scores).forEach(([fruit, score]) => {
+      if (score > maxScore) {
+        maxScore = score;
+        resultType = fruit as FruitType;
+      }
+    });
+
+    return resultType;
   };
 
   // Dynamic color themes for each question - Red to Purple spectrum
@@ -372,7 +405,7 @@ function App() {
         )}
         {screen === 'result' && (
           <ResultScreen
-            personalityType={personalityType}
+            fruitType={fruitType}
             answers={answers}
           />
         )}

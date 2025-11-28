@@ -1,20 +1,94 @@
-import { PersonalityType, PersonalityInfo } from '../types';
+import { FruitType, FruitPersonality } from '../types';
 
-export const personalities: Record<PersonalityType, PersonalityInfo> = {
-  "ESTJ": { name: "The Executive", description: "Organized, practical, and decisive. You excel at managing tasks and leading teams." },
-  "ESTP": { name: "The Entrepreneur", description: "Energetic, perceptive, and spontaneous. You thrive on action and new experiences." },
-  "ESFJ": { name: "The Consul", description: "Caring, social, and organized. You value harmony and helping others." },
-  "ESFP": { name: "The Entertainer", description: "Outgoing, friendly, and spontaneous. You love being the center of attention." },
-  "ENTJ": { name: "The Commander", description: "Bold, strategic, and strong-willed. You're a natural leader who loves challenges." },
-  "ENTP": { name: "The Debater", description: "Quick-witted, innovative, and curious. You enjoy intellectual debates and new ideas." },
-  "ENFJ": { name: "The Protagonist", description: "Charismatic, inspiring, and empathetic. You're passionate about helping others grow." },
-  "ENFP": { name: "The Campaigner", description: "Enthusiastic, creative, and sociable. You see life as full of possibilities." },
-  "ISTJ": { name: "The Logistician", description: "Practical, fact-minded, and reliable. You value tradition and order." },
-  "ISTP": { name: "The Virtuoso", description: "Bold, practical, and experimental. You're a master of tools and techniques." },
-  "ISFJ": { name: "The Defender", description: "Dedicated, warm, and protective. You're always ready to defend loved ones." },
-  "ISFP": { name: "The Adventurer", description: "Flexible, charming, and artistic. You live in the moment and appreciate beauty." },
-  "INTJ": { name: "The Architect", description: "Imaginative, strategic, and determined. You love developing innovative solutions." },
-  "INTP": { name: "The Logician", description: "Innovative, curious, and analytical. You're always seeking to understand the world." },
-  "INFJ": { name: "The Advocate", description: "Idealistic, organized, and insightful. You're driven by your values and vision." },
-  "INFP": { name: "The Mediator", description: "Idealistic, loyal, and empathetic. You're guided by your values and seek harmony." }
+export const fruitPersonalities: Record<FruitType, FruitPersonality> = {
+  banana: {
+    name: '香蕉塑',
+    emoji: '🍌',
+    title: '柔和包容的托举者',
+    description: '你像香蕉一样柔和包容，是大家信任的托举者。你总是能够理解他人的感受，用温柔的方式化解矛盾。你的存在让周围的人感到安心和舒适，就像香蕉的柔软口感一样，给人温暖的感觉。',
+    traits: ['温柔体贴', '善解人意', '包容力强', '值得信赖'],
+    strengths: ['擅长倾听他人', '化解冲突的能力', '给人安全感', '情绪稳定'],
+    advice: '记得也要照顾好自己的感受，不要总是委屈自己成全别人。适当表达自己的需求，会让你的人际关系更加健康。'
+  },
+  apple: {
+    name: '苹果塑',
+    emoji: '🍎',
+    title: '健康积极的实干家',
+    description: '你像苹果一样健康积极，充满正能量。你做事踏实可靠，总是能够脚踏实地地完成目标。你的生活态度积极向上，就像苹果的营养价值一样，给周围的人带来正面影响。',
+    traits: ['积极向上', '踏实可靠', '健康生活', '目标明确'],
+    strengths: ['执行力强', '自律性高', '影响力正面', '持之以恒'],
+    advice: '偶尔也可以放松一下，不要对自己太严格。享受生活的乐趣，会让你的人生更加丰富多彩。'
+  },
+  strawberry: {
+    name: '草莓塑',
+    emoji: '🍓',
+    title: '甜美可爱的开心果',
+    description: '你像草莓一样甜美可爱，是大家的开心果。你天真烂漫，总能发现生活中的小美好。你的笑容具有感染力，就像草莓的甜蜜味道一样，让人心情愉悦。',
+    traits: ['天真可爱', '乐观开朗', '富有童心', '讨人喜欢'],
+    strengths: ['感染力强', '创造快乐', '保持纯真', '人缘好'],
+    advice: '在保持可爱的同时，也要学会成长和独立。适当的成熟会让你更有魅力。'
+  },
+  watermelon: {
+    name: '西瓜塑',
+    emoji: '🍉',
+    title: '清爽大方的社交达人',
+    description: '你像西瓜一样清爽大方，是天生的社交达人。你性格开朗，善于与人交往，总能在人群中脱颖而出。你的大方得体就像西瓜的清爽口感，让人感到舒适自在。',
+    traits: ['开朗大方', '社交能力强', '落落大方', '亲和力强'],
+    strengths: ['人际关系好', '组织能力强', '气场强大', '受人欢迎'],
+    advice: '在社交的同时，也要留出独处的时间。深度的自我对话会让你更了解自己。'
+  },
+  grape: {
+    name: '葡萄塑',
+    emoji: '🍇',
+    title: '优雅精致的艺术家',
+    description: '你像葡萄一样优雅精致，有着独特的艺术气质。你注重细节，追求品质，对美有着敏锐的感知。你的优雅就像葡萄的晶莹剔透，散发着迷人的魅力。',
+    traits: ['优雅精致', '品味独特', '艺术气质', '注重细节'],
+    strengths: ['审美能力强', '追求完美', '气质出众', '有内涵'],
+    advice: '不要过于追求完美，接受生活中的不完美也是一种美。放松心态，会让你更加自在。'
+  },
+  orange: {
+    name: '橙子塑',
+    emoji: '🍊',
+    title: '活力阳光的能量源',
+    description: '你像橙子一样充满活力和阳光，是团队的能量源。你热情开朗，总是充满干劲，能够激励周围的人。你的活力就像橙子的维C一样，给人注入满满的正能量。',
+    traits: ['活力四射', '热情开朗', '积极主动', '充满干劲'],
+    strengths: ['激励他人', '行动力强', '乐观向上', '感染力强'],
+    advice: '注意劳逸结合，不要把自己累垮。适当的休息会让你保持更持久的活力。'
+  },
+  peach: {
+    name: '桃子塑',
+    emoji: '🍑',
+    title: '温柔体贴的暖心人',
+    description: '你像桃子一样温柔体贴，是大家的暖心人。你细腻敏感，善于察觉他人的情绪，总能在恰当的时候给予关怀。你的温柔就像桃子的柔软多汁，让人感到温暖。',
+    traits: ['温柔体贴', '细腻敏感', '善解人意', '关怀他人'],
+    strengths: ['共情能力强', '善于照顾人', '情感丰富', '贴心温暖'],
+    advice: '在照顾他人的同时，也要保护好自己的情绪。学会说不，不要让自己太累。'
+  },
+  pineapple: {
+    name: '菠萝塑',
+    emoji: '🍍',
+    title: '热情奔放的冒险家',
+    description: '你像菠萝一样热情奔放，是天生的冒险家。你勇于尝试新事物，不畏挑战，总是充满激情。你的热情就像菠萝的酸甜口感，给生活带来刺激和惊喜。',
+    traits: ['热情奔放', '勇于冒险', '充满激情', '不畏挑战'],
+    strengths: ['勇气十足', '创新能力强', '敢于突破', '富有魅力'],
+    advice: '在追求刺激的同时，也要注意安全和稳定。适当的规划会让你的冒险更加精彩。'
+  },
+  cherry: {
+    name: '樱桃塑',
+    emoji: '🍒',
+    title: '小巧灵动的精灵',
+    description: '你像樱桃一样小巧灵动，是可爱的小精灵。你机灵活泼，反应敏捷，总能带来惊喜。你的灵动就像樱桃的小巧玲珑，让人爱不释手。',
+    traits: ['机灵活泼', '反应敏捷', '小巧可爱', '充满灵气'],
+    strengths: ['应变能力强', '思维敏捷', '讨人喜欢', '富有创意'],
+    advice: '在保持灵动的同时，也要培养耐心和专注力。深度思考会让你更有深度。'
+  },
+  mango: {
+    name: '芒果塑',
+    emoji: '🥭',
+    title: '热带魅力的魅力者',
+    description: '你像芒果一样充满热带魅力，是天生的魅力者。你独特迷人，总能吸引他人的目光，散发着异域风情。你的魅力就像芒果的浓郁香甜，让人难以忘怀。',
+    traits: ['魅力十足', '独特迷人', '异域风情', '吸引力强'],
+    strengths: ['个人魅力强', '独特气质', '令人难忘', '自信从容'],
+    advice: '在展现魅力的同时，也要保持真实的自我。内在的修养会让你的魅力更加持久。'
+  }
 };
